@@ -47,195 +47,122 @@
 
 
                     <div class="row">
-                        <!--Start OutPatients-->
                         <!DOCTYPE html>
                         <html lang="en">
 
                         <head>
-                            <meta charset="UTF-8">
-                            <title>Hospitals Gallery</title>
-                            <meta name="viewport" content="width=device-width, initial-scale=1">
-                            <!-- Bootstrap CSS -->
-                            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+                            <meta charset="UTF-8" />
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                            <title>Hospitals</title>
+                            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
                                 rel="stylesheet">
-                            <!-- Cursor Icon -->
                             <style>
                             body {
-                                margin: 0;
-                                padding: 0;
-                                background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-                                background-size: 400% 400%;
-                                animation: gradientBG 15s ease infinite;
-                                cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1102.cur'), auto;
-                            }
-
-                            @keyframes gradientBG {
-                                0% {
-                                    background-position: 0% 50%;
-                                }
-
-                                50% {
-                                    background-position: 100% 50%;
-                                }
-
-                                100% {
-                                    background-position: 0% 50%;
-                                }
+                                background: linear-gradient(to right, #FFFFFFFF, #FFFFFFFF);
+                                color: white;
+                                font-family: 'Segoe UI', sans-serif;
+                                overflow-x: hidden;
                             }
 
                             .hospital-card {
-                                height: 100%;
-                                min-height: 400px;
-                                border: none;
-                                border-radius: 25px;
-                                overflow: hidden;
-                                position: relative;
+                                border-radius: 20px;
+                                padding: 40px 20px;
                                 text-align: center;
-                                color: white;
                                 transition: transform 0.4s ease, box-shadow 0.4s ease;
-                                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-                                opacity: 0;
-                                transform: translateY(40px);
-                                animation: fadeInUp 1s forwards;
-                            }
-
-                            .hospital-card:nth-child(1) {
-                                animation-delay: 0.3s;
-                            }
-
-                            .hospital-card:nth-child(2) {
-                                animation-delay: 0.6s;
-                            }
-
-                            .hospital-card:nth-child(3) {
-                                animation-delay: 0.9s;
-                            }
-
-                            @keyframes fadeInUp {
-                                to {
-                                    opacity: 1;
-                                    transform: translateY(0);
-                                }
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
                             }
 
                             .hospital-card:hover {
-                                transform: scale(1.05);
-                                box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+                                transform: translateY(-10px);
+                                box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
                             }
 
-                            .hospital-card::before {
-                                content: '';
-                                position: absolute;
-                                top: -50%;
-                                left: -50%;
-                                width: 200%;
-                                height: 200%;
-                                background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-                                transform: rotate(25deg);
-                                opacity: 0;
-                                transition: opacity 0.6s;
-                                pointer-events: none;
-                            }
-
-                            .hospital-card:hover::before {
-                                opacity: 1;
-                                animation: shine 1s ease-out;
-                            }
-
-                            @keyframes shine {
-                                0% {
-                                    transform: rotate(25deg) translateX(-100%);
-                                }
-
-                                100% {
-                                    transform: rotate(25deg) translateX(100%);
-                                }
-                            }
-
-                            .hospital-card img {
-                                width: 150px;
-                                height: 150px;
-                                object-fit: cover;
-                                border-radius: 30px;
-                                border: 3px solid #fff;
-                                box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-                                margin-bottom: 20px;
-                                transition: transform 0.5s ease;
-                            }
-
-                            .hospital-card:hover img {
-                                transform: scale(1.08) rotate(2deg);
-                            }
-
-                            .hospital-card h3 {
-                                text-shadow: 0 0 8px #ffffff;
-                                font-weight: bold;
+                            .hospital-title {
                                 font-size: 1.6rem;
+                                color: white;
+                                margin-bottom: 20px;
+                                text-shadow: 0 0 10px #fff;
+                            }
+
+                            .hospital-img {
+                                max-width: 60%;
+                                margin: 0 auto;
+                                display: block;
+                                border-radius: 15px;
+                                box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+                            }
+
+                            a.text-decoration-none:hover {
+                                text-decoration: none !important;
+                            }
+
+                            @media (max-width: 576px) {
+                                .hospital-card {
+                                    padding: 30px 10px;
+                                }
+
+                                .hospital-title {
+                                    font-size: 1.2rem;
+                                }
+
+                                .hospital-img {
+                                    max-width: 70%;
+                                }
                             }
                             </style>
                         </head>
 
                         <body>
 
-                            <!-- Sounds -->
-                            <audio id="hover-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_9b64b45c4a.mp3"
-                                preload="auto"></audio>
-                            <audio id="click-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_9f912e531e.mp3"
-                                preload="auto"></audio>
-
                             <div class="container py-5">
-                                <div class="row g-4 justify-content-center">
-                                    <!-- Hospital 1 -->
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                                        <div class="hospital-card"
-                                            style="background: linear-gradient(135deg, #f7971e, #ffd200);">
-                                            <img src="https://images.unsplash.com/photo-1586773860414-0f321a89f9cd"
-                                                alt="PrimeCare Hospital">
-                                            <h3>PrimeCare Hospital</h3>
-                                        </div>
+                                <div class="row justify-content-center g-4">
+
+                                    <!-- PrimeCare -->
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <a href="primecare.html" class="text-decoration-none">
+                                            <div class="hospital-card"
+                                                style="background: linear-gradient(135deg, #214B21FF, #54D8ACFF);">
+                                                <h3 class="hospital-title">Zahra EL-Madaan Hospital</h3>
+                                                <img src="assets/images/zahra.png" alt="PrimeCare" class="hospital-img">
+                                            </div>
+                                        </a>
                                     </div>
 
-                                    <!-- Hospital 2 -->
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                                        <div class="hospital-card"
-                                            style="background: linear-gradient(135deg, #00c6ff, #0072ff);">
-                                            <img src="assets/images/welcarelogo.png" alt="Welcare Hospital">
-                                            <h3>Welcare Hospital</h3>
-                                        </div>
+                                    <!-- Welcare -->
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <a href="welcare.html" class="text-decoration-none">
+                                            <div class="hospital-card"
+                                                style="background: linear-gradient(135deg, #A58836FF, #ECDEADFF);">
+                                                <h3 class="hospital-title">Welcare Hospital</h3>
+                                                <img src="assets/images/welcarelogo.png" alt="Welcare"
+                                                    class="hospital-img">
+                                            </div>
+                                        </a>
                                     </div>
 
-                                    <!-- Hospital 3 -->
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-                                        <div class="hospital-card"
-                                            style="background: linear-gradient(135deg, #f54ea2, #ff7676);">
-                                            <img src="https://images.unsplash.com/photo-1600959730503-a01263f7eab5"
-                                                alt="NovaMed Center">
-                                            <h3>NovaMed Center</h3>
-                                        </div>
+                                    <!-- NovaMed -->
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <a href="novamed.html" class="text-decoration-none">
+                                            <div class="hospital-card"
+                                                style="background: linear-gradient(135deg, #1339A3FF, #99B3FAFF);">
+                                                <h3 class="hospital-title">Katameya Hospital</h3>
+                                                <img src="assets/images/katameya.png" alt="NovaMed"
+                                                    class="hospital-img">
+                                            </div>
+                                        </a>
                                     </div>
+
                                 </div>
                             </div>
 
-                            <!-- JS: Hover & Click Sounds -->
-                            <script>
-                            const hoverSound = document.getElementById('hover-sound');
-                            const clickSound = document.getElementById('click-sound');
-
-                            document.querySelectorAll('.hospital-card').forEach(card => {
-                                card.addEventListener('mouseenter', () => {
-                                    hoverSound.currentTime = 0;
-                                    hoverSound.play();
-                                });
-
-                                card.addEventListener('click', () => {
-                                    clickSound.currentTime = 0;
-                                    clickSound.play();
-                                });
-                            });
-                            </script>
                         </body>
 
                         </html>
+
+
 
 
                         <!-- end col-->
@@ -243,229 +170,13 @@
 
 
                         <!--Start InPatients-->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="widget-rounded-circle card-box">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="mdi mdi-hotel   font-22 avatar-title text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-right">
-                                            <?php
-                                                    //code for summing up number of in / admitted  patients 
-                                                    $result ="SELECT count(*) FROM his_patients WHERE pat_type = 'InPatient' ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($inpatient);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
-                                            <h3 class="text-dark mt-1"><span
-                                                    data-plugin="counterup"><?php echo $inpatient;?></span></h3>
-                                            <p class="text-muted mb-1 text-truncate">In Patients</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
-                        <!--End InPatients-->
 
-                        <!--Start Employees-->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="widget-rounded-circle card-box">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="mdi mdi-doctor font-22 avatar-title text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-right">
-                                            <?php
-                                                    //code for summing up number of employees in the certain Hospital 
-                                                    $result ="SELECT count(*) FROM his_docs ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($doc);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
-                                            <h3 class="text-dark mt-1"><span
-                                                    data-plugin="counterup"><?php echo $doc;?></span></h3>
-                                            <p class="text-muted mb-1 text-truncate">Hospital Employees</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
-                        <!--End Employees-->
-
-                    </div>
-
-                    <div class="row">
-
-                        <!--Start Vendors-->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="widget-rounded-circle card-box">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="fas fa-user-tag font-22 avatar-title text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-right">
-                                            <?php
-                                                    /*code for summing up number of vendors whom supply eqipments, 
-                                                     *pharms or any other equipments
-                                                     */ 
-                                                    $result ="SELECT count(*) FROM his_vendor ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($vendor);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
-                                            <h3 class="text-dark mt-1"><span
-                                                    data-plugin="counterup"><?php echo $vendor;?></span></h3>
-                                            <p class="text-muted mb-1 text-truncate">Vendors</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
-                        <!--End Vendors-->
-
-                        <!--Start Corporation Assets-->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="widget-rounded-circle card-box">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="mdi mdi-flask font-22 avatar-title text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-right">
-                                            <?php
-                                                    /* 
-                                                     * code for summing up number of assets,
-                                                     */ 
-                                                    $result ="SELECT count(*) FROM his_equipments ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($assets);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
-                                            <h3 class="text-dark mt-1"><span
-                                                    data-plugin="counterup"><?php echo $assets;?></span></h3>
-                                            <p class="text-muted mb-1 text-truncate">Corporation Assets</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
-                        <!--End Corporation Assets-->
-
-                        <!--Start Pharmaceuticals-->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="widget-rounded-circle card-box">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="mdi mdi-pill font-22 avatar-title text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-right">
-                                            <?php
-                                                    /* 
-                                                     * code for summing up number of pharmaceuticals,
-                                                     */ 
-                                                    $result ="SELECT count(*) FROM his_pharmaceuticals ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($phar);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
-                                            <h3 class="text-dark mt-1"><span
-                                                    data-plugin="counterup"><?php echo $phar;?></span></h3>
-                                            <p class="text-muted mb-1 text-truncate">Pharmaceuticals</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
-                        <!--End Pharmaceuticals-->
 
                     </div>
 
 
 
-                    <!--Recently Employed Employees-->
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card-box">
-                                <h4 class="header-title mb-3">Hospital Employees</h4>
 
-                                <div class="table-responsive">
-                                    <table class="table table-borderless table-hover table-centered m-0">
-
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th colspan="2">Picture</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Department</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <?php
-                                                $ret="SELECT * FROM his_docs ORDER BY RAND() LIMIT 10 "; 
-                                                //sql code to get to ten docs  randomly
-                                                $stmt= $mysqli->prepare($ret) ;
-                                                $stmt->execute() ;//ok
-                                                $res=$stmt->get_result();
-                                                $cnt=1;
-                                                while($row=$res->fetch_object())
-                                                {
-                                            ?>
-                                        <tbody>
-                                            <tr>
-                                                <td style="width: 36px;">
-                                                    <img src="../doc/assets/images/users/<?php echo $row->doc_dpic;?>"
-                                                        alt="img" title="contact-img"
-                                                        class="rounded-circle avatar-sm" />
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td>
-                                                    <?php echo $row->doc_fname;?> <?php echo $row->doc_lname;?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $row->doc_email;?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $row->doc_dept;?>
-                                                </td>
-                                                <td>
-                                                    <a href="his_admin_view_single_employee.php?doc_id=<?php echo $row->doc_id;?>&&doc_number=<?php echo $row->doc_number;?>"
-                                                        class="btn btn-xs btn-primary"><i class="mdi mdi-eye"></i>
-                                                        View</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <?php }?>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
 
                 </div> <!-- container -->
 
