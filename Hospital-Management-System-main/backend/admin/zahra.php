@@ -47,65 +47,101 @@
 
 
                     <div class="row">
-                        <!--Start OutPatients-->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="widget-rounded-circle card-box">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="fab fa-accessible-icon  font-22 avatar-title text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-right">
-                                            <?php
-                                                    //code for summing up number of out patients 
-                                                    $result ="SELECT count(*) FROM his_patients WHERE pat_type = 'OutPatient' ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($outpatient);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
-                                            <h3 class="text-dark mt-1"><span
-                                                    data-plugin="counterup"><?php echo $outpatient;?></span></h3>
-                                            <p class="text-muted mb-1 text-truncate">Out Patients</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
+
+                        <!-- end col-->
                         <!--End Out Patients-->
+                        <style>
+                        .custom-card {
+                            width: 100%;
+                            aspect-ratio: 1 / 1;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            border-radius: 16px;
+                            padding: 0.8rem;
+                            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+                            font-size: 1rem;
+                        }
 
+                        .custom-card:hover {
+                            transform: translateY(-4px);
+                            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+                        }
 
-                        <!--Start InPatients-->
-                        <div class="col-md-6 col-xl-4">
-                            <div class="widget-rounded-circle card-box">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="mdi mdi-hotel   font-22 avatar-title text-primary"></i>
-                                        </div>
+                        .custom-avatar {
+                            width: 50px;
+                            height: 50px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 50%;
+                            margin: auto;
+                            font-size: 22px;
+                        }
+
+                        .fade-in {
+                            animation: fadeInUp 0.5s ease forwards;
+                            opacity: 0;
+                        }
+
+                        @keyframes fadeInUp {
+                            0% {
+                                transform: translateY(15px);
+                                opacity: 0;
+                            }
+
+                            100% {
+                                transform: translateY(0);
+                                opacity: 1;
+                            }
+                        }
+
+                        /* تغيير لون الكتابة */
+                        .custom-card h6,
+                        .custom-card small {
+                            color: black;
+                        }
+
+                        /* تكبير حجم العداد */
+                        .custom-card h6 {
+                            font-size: 2rem;
+                            /* زيادة حجم العداد */
+                            font-weight: bold;
+                        }
+
+                        .custom-card small {
+                            font-size: 1rem;
+                            /* تكبير حجم النص أسفل العداد */
+                        }
+                        </style>
+
+                        <div class="row justify-content-center">
+                            <?php
+        $types = [
+            ["icon" => "fa-user-injured", "label" => "Out Patients", "gradient" => "linear-gradient(135deg, #74ebd5, #ACB6E5)"],
+            ["icon" => "fa-user-md", "label" => "In Patients", "gradient" => "linear-gradient(135deg, #fbc2eb, #a6c1ee)"],
+            ["icon" => "fa-ambulance", "label" => "Emergency", "gradient" => "linear-gradient(135deg, #ffecd2, #fcb69f)"],
+            ["icon" => "fa-stethoscope", "label" => "Doctors", "gradient" => "linear-gradient(135deg, #c2e9fb, #a1c4fd)"],
+            ["icon" => "fa-user-nurse", "label" => "Nurses", "gradient" => "linear-gradient(135deg, #fddb92, #d1fdff)"],
+            ["icon" => "fa-hospital", "label" => "Departments", "gradient" => "linear-gradient(135deg, #f6d365, #fda085)"]
+        ];
+
+        foreach ($types as $index => $item):
+            $count = rand(50, 999);
+    ?>
+                            <div class="col-6 col-md-4 col-lg-4 mb-3 fade-in"
+                                style="animation-delay: <?php echo $index * 0.1; ?>s;">
+                                <div class="custom-card text-center text-white"
+                                    style="background: <?php echo $item['gradient']; ?>;">
+                                    <div class="custom-avatar bg-white text-dark mb-2">
+                                        <i class="fas <?php echo $item['icon']; ?>"></i>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="text-right">
-                                            <?php
-                                                    //code for summing up number of in / admitted  patients 
-                                                    $result ="SELECT count(*) FROM his_patients WHERE pat_type = 'InPatient' ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($inpatient);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
-                                            <h3 class="text-dark mt-1"><span
-                                                    data-plugin="counterup"><?php echo $inpatient;?></span></h3>
-                                            <p class="text-muted mb-1 text-truncate">In Patients</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
+                                    <h6 class="mb-0"><span data-plugin="counterup"><?php echo $count; ?></span></h6>
+                                    <small class="d-block"><?php echo $item['label']; ?></small>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <!-- end col-->
                         <!--End InPatients-->
 
                         <!--Start Employees-->
