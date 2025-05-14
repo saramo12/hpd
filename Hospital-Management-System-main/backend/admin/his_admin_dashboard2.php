@@ -122,7 +122,7 @@
 
                                     <!-- PrimeCare -->
                                     <div class="col-12 col-sm-6 col-lg-4">
-                                        <a href="primecare.html" class="text-decoration-none">
+                                        <a href="zahra.php" class="text-decoration-none">
                                             <div class="hospital-card"
                                                 style="background: linear-gradient(135deg, #214B21FF, #54D8ACFF);">
                                                 <h3 class="hospital-title">Zahra EL-Madaan Hospital</h3>
@@ -133,7 +133,7 @@
 
                                     <!-- Welcare -->
                                     <div class="col-12 col-sm-6 col-lg-4">
-                                        <a href="welcare.html" class="text-decoration-none">
+                                        <a href="welcare.php" class="text-decoration-none">
                                             <div class="hospital-card"
                                                 style="background: linear-gradient(135deg, #A58836FF, #ECDEADFF);">
                                                 <h3 class="hospital-title">Welcare Hospital</h3>
@@ -145,7 +145,7 @@
 
                                     <!-- NovaMed -->
                                     <div class="col-12 col-sm-6 col-lg-4">
-                                        <a href="novamed.html" class="text-decoration-none">
+                                        <a href="katamya.php" class="text-decoration-none">
                                             <div class="hospital-card"
                                                 style="background: linear-gradient(135deg, #1339A3FF, #99B3FAFF);">
                                                 <h3 class="hospital-title">Katameya Hospital</h3>
