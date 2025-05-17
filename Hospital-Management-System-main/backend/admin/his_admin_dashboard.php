@@ -116,12 +116,12 @@
                         <div class="row justify-content-center">
                             <?php
         $types = [
-            ["icon" => "fa-user-injured", "label" => "Out Patients", "gradient" => "linear-gradient(135deg, #74ebd5, #ACB6E5)"],
-            ["icon" => "fa-user-md", "label" => "In Patients", "gradient" => "linear-gradient(135deg, #fbc2eb, #a6c1ee)"],
-            ["icon" => "fa-ambulance", "label" => "Emergency", "gradient" => "linear-gradient(135deg, #ffecd2, #fcb69f)"],
-            ["icon" => "fa-stethoscope", "label" => "Doctors", "gradient" => "linear-gradient(135deg, #c2e9fb, #a1c4fd)"],
-            ["icon" => "fa-user-nurse", "label" => "Nurses", "gradient" => "linear-gradient(135deg, #fddb92, #d1fdff)"],
-            ["icon" => "fa-hospital", "label" => "Departments", "gradient" => "linear-gradient(135deg, #f6d365, #fda085)"]
+            ["icon" => "fa-user-injured", "label" => "Out Equipments", "gradient" => "linear-gradient(135deg, #74ebd5, #ACB6E5)"],
+            ["icon" => "fa-user-md", "label" => "Vendors", "gradient" => "linear-gradient(135deg, #fbc2eb, #a6c1ee)"],
+            ["icon" => "fa-ambulance", "label" => "Invoices", "gradient" => "linear-gradient(135deg, #ffecd2, #fcb69f)"],
+            ["icon" => "fa-stethoscope", "label" => "Employees", "gradient" => "linear-gradient(135deg, #c2e9fb, #a1c4fd)"],
+            ["icon" => "fa-user-nurse", "label" => "Manufactures", "gradient" => "linear-gradient(135deg, #fddb92, #d1fdff)"],
+            ["icon" => "fa-hospital", "label" => "Reports", "gradient" => "linear-gradient(135deg, #f6d365, #fda085)"]
         ];
 
         foreach ($types as $index => $item):

@@ -31,20 +31,20 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="his_admin_register_patient.php">Register Patient</a>
+                            <a href="his_admin_register_invoice.php">Register Invoice</a>
                         </li>
                         <li>
-                            <a href="his_admin_view_patients.php">View Patients</a>
+                            <a href="his_admin_view_invoice.php">View Invoice</a>
                         </li>
                         <li>
-                            <a href="his_admin_manage_patient.php">Manage Patients</a>
+                            <a href="his_admin_manage_patient.php">Manage Invoice</a>
                         </li>
                         <hr>
                         <li>
-                            <a href="his_admin_discharge_patient.php">Discharge Patients</a>
+                            <a href="his_admin_discharge_patient.php">Discharge Invoice</a>
                         </li>
                         <li>
-                            <a href="his_admin_patient_transfer.php">Patient Transfers</a>
+                            <a href="his_admin_patient_transfer.php">Invoice Transfers</a>
                         </li>
                     </ul>
                 </li>
