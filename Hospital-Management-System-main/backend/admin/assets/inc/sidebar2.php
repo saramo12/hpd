@@ -16,7 +16,7 @@
                     </a>
 
                 </li>
-                
+
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fab fa-accessible-icon "></i>
@@ -80,31 +80,13 @@
                             <a href="his_admin_add_manufactures.php">Add Manufactures</a>
                         </li>
                         <li>
-                            <a href="his_admin_view_pharm_cat.php">View Manufactures</a>
+                            <a href="his_admin_view_manufactures.php">View Manufactures</a>
                         </li>
                         <li>
-                            <a href="his_admin_manage_pharm_cat.php">Manage Manufactures</a>
+                            <a href="his_admin_manage_manufactures.php">Manage Manufactures</a>
                         </li>
                         <hr>
-                        <li>
-                            <a href="his_admin_add_pharmaceuticals.php">Add Factory Owner</a>
-                        </li>
-                        <li>
-                            <a href="his_admin_view_pharmaceuticals.php">View Factory Owner</a>
-                        </li>
-                        <li>
-                            <a href="his_admin_manage_pharmaceuticals.php">Manage Factory Owner</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="his_admin_add_presc.php">Add Prescriptions</a>
-                        </li>
-                        <li>
-                            <a href="his_admin_view_presc.php">View Prescriptions</a>
-                        </li>
-                        <li>
-                            <a href="his_admin_manage_presc.php">Manage Prescriptions</a>
-                        </li>
+
                     </ul>
                 </li>
 
@@ -181,7 +163,7 @@
                     </ul>
                 </li>
 
-                
+
 
                 <li>
                     <a href="javascript: void(0);">
@@ -215,8 +197,8 @@
                     </ul>
                 </li>
 
-                
-                
+
+
 
                 <li>
                     <a href="javascript: void(0);">
@@ -234,7 +216,7 @@
 
                     </ul>
                 </li>
-                
+
 
             </ul>
 

@@ -4,10 +4,10 @@
   include('assets/inc/checklogin.php');
   check_login();
   $aid=$_SESSION['ad_id'];
-  if(isset($_GET['delete_vendor_number']))
+  if(isset($_GET['delete_pharm_cat']))
   {
-        $id=intval($_GET['delete_vendor_number']);
-        $adn="delete from his_vendor where v_number=?";
+        $id=intval($_GET['delete_pharm_cat']);
+        $adn="delete from his_pharmaceuticals_categories where pharm_cat_id=?";
         $stmt= $mysqli->prepare($adn);
         $stmt->bind_param('i',$id);
         $stmt->execute();
@@ -15,7 +15,7 @@
   
           if($stmt)
           {
-            $success = "Vendor Records Deleted";
+            $success = "Pharmaceutical Category Records Deleted";
           }
             else
             {
@@ -59,11 +59,12 @@
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Vendor</a></li>
-                                        <li class="breadcrumb-item active">Manage Vendors</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Manufactures </a>
+                                        </li>
+                                        <li class="breadcrumb-item active">Manage Manufactures Category</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Manage Vendors</h4>
+                                <h4 class="page-title">Manage Manufactures Categories</h4>
                             </div>
                         </div>
                     </div>
@@ -99,9 +100,8 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th data-toggle="true">Vendor Name</th>
-                                                <th data-hide="phone">Vendor Number</th>
-                                                <th data-hide="phone">Vendro Email</th>
+                                                <th data-toggle="true">Category Name</th>
+                                                <th data-hide="phone">Category Vendor</th>
                                                 <th data-hide="phone">Action</th>
                                             </tr>
                                         </thead>
@@ -110,34 +110,31 @@
                                                 *get details of allpatients
                                                 *
                                             */
-                                                $ret="SELECT * FROM  his_vendor ORDER BY RAND() "; 
-                                                //sql code to get to ten docs  randomly
+                                                $ret="SELECT * FROM  his_pharmaceuticals_categories ORDER BY RAND() "; 
                                                 $stmt= $mysqli->prepare($ret) ;
                                                 $stmt->execute() ;//ok
                                                 $res=$stmt->get_result();
                                                 $cnt=1;
                                                 while($row=$res->fetch_object())
                                                 {
-                                                    //$mysqlDateTime = $row->s_pat_date;
                                             ?>
 
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $cnt;?></td>
-                                                <td><?php echo $row->v_name;?></td>
-                                                <td><?php echo $row->v_number;?></td>
-                                                <td><?php echo $row->v_email;?></td>
-
-
+                                                <td><?php echo $row->pharm_cat_name;?></td>
+                                                <td><?php echo $row->pharm_cat_vendor;?></td>
                                                 <td>
-                                                    <a href="his_admin_view_single_vendor.php?v_number=<?php echo $row->v_number;?>"
-                                                        class="badge badge-success"><i class="fas fa-eye"></i> View</a>
-                                                    <a href="his_admin_update_single_vendor.php?v_number=<?php echo $row->v_number;?>"
-                                                        class="badge badge-success"><i class="fas fa-edit"></i>
-                                                        Update</a>
-                                                    <a href="his_admin_manage_vendor.php?delete_vendor_number=<?php echo $row->v_number?>"
-                                                        class="badge badge-danger"><i class="fas fa-trash"></i> Delete
-                                                        Record</a>
+                                                    <a href="his_admin_view_single_pharm_category.php?pharm_cat_id=<?php echo $row->pharm_cat_id;?>"
+                                                        class="badge badge-success"><i class="far fa-eye "></i> View</a>
+                                                    <a href="his_admin_update_single_pharm_category.php?pharm_cat_name=<?php echo $row->pharm_cat_name;?>"
+                                                        class="badge badge-warning"><i
+                                                            class="fas fa-clipboard-check "></i> Update</a>
+                                                    <a href="his_admin_manage_pharm_cat.php?delete_pharm_cat=<?php echo $row->pharm_cat_id;?>"
+                                                        class="badge badge-danger"><i class="fas fa-trash-alt "></i>
+                                                        Delete</a>
+
+
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -21,7 +21,7 @@
             <!-- end Topbar -->
 
             <!-- ========== Left Sidebar Start ========== -->
-                <?php include("assets/inc/sidebar.php");?>
+                <?php include("assets/inc/sidebar2.php");?>
             <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->
